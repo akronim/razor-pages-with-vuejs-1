@@ -1,0 +1,47 @@
+﻿@page
+@{
+    Layout = "_Layout_Example1";
+}
+
+@section Head{
+    <style>
+        .elementWrap {
+            margin-top: 20px
+        }
+    </style>
+}
+
+<div>
+    <h1>Example 2</h1>
+    Message from vue: <span v-text="appMessage"></span><br />
+
+    <div class="elementWrap">
+        Element 1 Visibility: <button type="button" v-on:click="displayElement1=!displayElement1">Toggle 1</button><br />
+        Element 2 Visibility: <button type="button" v-on:click="displayElement2=!displayElement2">Toggle 2</button><br />
+    </div>
+
+    <div class="elementWrap">
+        <span v-if="displayElement1">Element 1</span>
+        <span v-if="displayElement2">Element 2</span>
+    </div>
+
+    <privacy text="barfoo"></privacy>
+</div>
+
+
+@section Scripts {
+    <script type="text/javascript">
+        var pageMixin = {
+            data: function () {
+                return {
+                    displayElement1: true,
+                    displayElement2: false
+                };
+            },
+            methods: {
+                //vue methods can be added here
+            }
+        };
+        mixinArray.push(pageMixin);
+    </script>
+}
